@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mayank SRK Digital Store</title>
+<!-- Razorpay Script -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<style>
+:root{--g:#087f65;--d:#073f34;--m:#e7f6f0;--ink:#192a26;--mut:#6e7d78;--line:#e6ece9}*{box-sizing:border-box}body{margin:0;font-family:system-ui,Arial;background:#fff;color:var(--ink)}button,input{font:inherit}button{cursor:pointer}.top{background:var(--d);color:#d6f4e9;text-align:center;padding:8px;font-size:12px}header{position:sticky;top:0;background:white;z-index:20;border-bottom:1px solid var(--line);box-shadow:0 3px 12px #1232}.head{max-width:1200px;margin:auto;padding:13px 18px;display:flex;align-items:center;gap:20px}.brand{display:flex;align-items:center;gap:9px;min-width:185px}.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--g),#40c59a);display:grid;place-items:center;color:white;font-weight:900;font-size:21px}.brand strong{display:block;font-size:17px}.brand small{font-size:10px;color:var(--g);letter-spacing:2px;font-weight:800}.search{flex:1;display:flex;border:1px solid #dce7e2;border-radius:25px;background:#f8fbf9;overflow:hidden}.search input{border:0;background:transparent;outline:0;padding:12px;flex:1;min-width:0}.search button{border:0;background:var(--g);color:white;padding:0 17px}.cartbtn{background:white;border:1px solid var(--line);border-radius:22px;padding:10px}.count{background:var(--g);color:white;border-radius:20px;padding:2px 7px}.nav{max-width:1200px;margin:auto;padding:0 18px 12px;display:flex;gap:22px;overflow:auto;white-space:nowrap;font-size:13px}.nav a{text-decoration:none;color:#40524b}.nav a:hover{color:var(--g)}main{max-width:1200px;margin:auto;padding:20px 18px}
+/* Scroll Margin Fix */
+section{scroll-margin-top:90px;}
+.hero{border-radius:20px;overflow:hidden;display:grid;grid-template-columns:1.1fr .9fr;background:linear-gradient(115deg,#087f65,#16a17b 65%,#4fc69e);color:white;min-height:300px}.heroCopy{padding:40px;align-self:center}.eyebrow{font-size:12px;font-weight:800;letter-spacing:2px;color:#c7f7e5}.hero h1{font-size:clamp(29px,4vw,46px);line-height:1.08;margin:14px 0}.hero p{color:#e2fff3;line-height:1.6}.cta{display:inline-block;margin-top:12px;background:white;color:var(--g);font-weight:800;padding:12px 18px;border-radius:24px;text-decoration:none}.bookart{display:grid;place-items:center;position:relative;font-size:105px;filter:drop-shadow(0 15px 8px #003b2c30)}.plant{position:absolute;right:20px;bottom:15px;font-size:62px}.section{margin:29px 0}.secthead{display:flex;justify-content:space-between;align-items:end;margin-bottom:16px}.secthead h2{margin:0;font-size:22px}.secthead p{margin:5px 0 0;color:var(--mut);font-size:13px}
+/* Grid Fix for 8 Categories */
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:12px}
+.cat{border:1px solid var(--line);border-radius:15px;background:white;padding:14px 7px;text-align:center}.cat:hover,.cat.active{border-color:var(--g);background:var(--m)}.cat .emoji{display:block;font-size:25px;margin-bottom:7px}.cat span:last-child{font-size:12px;font-weight:700}.sales{display:grid;grid-template-columns:1fr 1fr;gap:15px}.sale{border-radius:17px;min-height:150px;padding:22px;display:flex;justify-content:space-between;align-items:center;color:white}.purple{background:linear-gradient(120deg,#3b2268,#7554a9)}.aqua{background:linear-gradient(120deg,#1b6671,#8bc8c5);color:#073e43}.sale h3{margin:0 0 7px;font-size:24px}.sale p{font-size:13px;margin:0 0 12px}.sale button{border:0;border-radius:20px;background:white;color:#253c39;padding:8px 12px;font-weight:bold}.saleart{font-size:65px}.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}.product{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:white;transition:.2s}.product:hover{transform:translateY(-3px);box-shadow:0 8px 22px #12453212}.cover{height:185px;display:grid;place-items:center;text-align:center;padding:14px;color:white;position:relative;background:linear-gradient(145deg,#284e81,#0d2348)}.green{background:linear-gradient(145deg,#0e8065,#064d3c)}.orange{background:linear-gradient(145deg,#b65c28,#702c12)}.pink{background:linear-gradient(145deg,#bd4e82,#69274c)}.gold{background:linear-gradient(145deg,#b88a22,#5d3e08)}.blue{background:linear-gradient(145deg,#426bb7,#1b2e63)}.teal{background:linear-gradient(145deg,#4ba3a1,#185959)}.covertext{font:800 20px Georgia,serif;line-height:1.25;text-shadow:0 2px 5px #0005}.tag{position:absolute;top:9px;left:9px;background:#ed4d57;color:white;border-radius:6px;padding:5px 7px;font-size:10px;font-weight:800}.info{padding:12px}.info h3{font-size:14px;margin:0 0 6px}.info p{font-size:11px;color:var(--mut);margin:0 0 8px;min-height:28px}.price{font-weight:900;color:var(--g);font-size:16px}.old{text-decoration:line-through;color:#8d9893;font-size:11px;margin-left:5px}.rating{font-size:11px;color:var(--mut);margin:6px 0}.buttons{display:flex;gap:6px;margin-top:9px}.buttons button{flex:1;border:0;border-radius:8px;padding:9px 4px;font-size:12px;font-weight:800}.buy{background:var(--g);color:white}.add{background:#eaf5f0;color:var(--g)}.benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;background:#f5faf7;border:1px solid #e6f0eb;border-radius:15px;padding:18px}.benefit{text-align:center}.benefit strong{display:block;margin:6px 0;font-size:13px}.benefit span{font-size:11px;color:var(--mut)}footer{background:#073f34;color:#d8eee6;margin-top:35px;padding:34px 18px}.foot{max-width:1200px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}.foot p,.foot a{font-size:13px;color:#b8d6ca;line-height:1.7}.drawer{display:none;position:fixed;inset:0;z-index:100;background:#0007}.drawer.open{display:block}.panel{position:absolute;right:0;top:0;height:100%;width:min(420px,100%);background:white;padding:20px;overflow:auto}.cartline{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--line);padding:14px 0}.total{font-size:20px;font-weight:900;margin:20px 0}.checkout{width:100%;border:0;border-radius:12px;background:var(--g);color:white;padding:14px;font-weight:800}.note{font-size:12px;color:var(--mut);line-height:1.5;text-align:center}@media(max-width:900px){.grid{grid-template-columns:repeat(3,1fr)}.head{flex-wrap:wrap}.search{order:3;flex-basis:100%}}@media(max-width:600px){.head{padding:11px}.hero{grid-template-columns:1fr}.heroCopy{padding:27px 23px 5px}.bookart{font-size:70px;min-height:145px}.plant{font-size:45px}.cats{grid-template-columns:repeat(4,1fr);gap:7px}.cat{padding:10px 4px}.cat .emoji{font-size:21px}.cat span:last-child{font-size:10px}.sales{grid-template-columns:1fr}.sale{min-height:135px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.cover{height:165px}.covertext{font-size:18px}.info{padding:10px}.benefits{grid-template-columns:repeat(2,1fr)}.foot{grid-template-columns:1fr}.section{margin:22px 0}}
+</style>
+</head>
+<body>
+<div class="top">✨ Digital PDFs & E-Books · Special launch offers · Download after purchase*</div>
+<header>
+  <div class="head">
+    <a class="brand" href="#"><div class="logo">M</div><div><strong>Mayank SRK</strong><small>DIGITAL STORE</small></div></a>
+    <div class="search"><input id="search" placeholder="Search books, topics, PDFs..." oninput="render()"><button onclick="render()">Search</button></div>
+    <button class="cartbtn" onclick="openCart()" aria-label="Open Cart">🛒 Cart <span class="count" id="count">0</span></button>
+  </div>
+  <nav class="nav"><a href="#">Home</a><a href="#categories">☰ Categories</a><a href="#trending">Trending PDFs</a><a href="#offers">Special Offers</a><a href="#best">Best Sellers</a><a href="#about">About</a></nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="heroCopy">
+      <div class="eyebrow">SPECIAL OFFER</div>
+      <h1>There is nothing<br>better than to read</h1>
+      <p>Discover helpful e-books, study PDFs and inspiring reads. Explore knowledge for every interest.</p>
+      <a class="cta" href="#trending">Explore Now →</a>
+    </div>
+    <div class="bookart">📚<span class="plant">🌿</span></div>
+  </section>
+
+  <section class="section" id="categories">
+    <div class="secthead"><div><h2>Browse Categories</h2><p>Explore PDFs by your favourite topic</p></div></div>
+    <div class="cats" id="cats"></div>
+  </section>
+
+  <section class="section" id="offers">
+    <div class="secthead"><div><h2>Special Offers</h2><p>Limited-time discounts on selected digital books</p></div></div>
+    <div class="sales">
+      <div class="sale purple"><div><h3>Sale 25% OFF</h3><p>On selected knowledge PDFs</p><button onclick="setCat('All')">SHOP NOW →</button></div><div class="saleart">📘</div></div>
+      <div class="sale aqua"><div><h3>Sale 45% OFF</h3><p>Discover featured e-books</p><button onclick="setCat('All')">SHOP NOW →</button></div><div class="saleart">📚</div></div>
+    </div>
+  </section>
+
+  <section class="section" id="trending">
+    <div class="secthead"><div><h2>Trending PDFs</h2><p>Popular digital reads right now</p></div></div>
+    <div class="grid" id="products"></div>
+  </section>
+
+  <section class="section" id="best">
+    <div class="secthead"><div><h2>Best Selling Collection</h2><p>Reader favourites and useful learning material</p></div></div>
+    <div class="grid" id="bestgrid"></div>
+  </section>
+
+  <section class="section">
+    <div class="benefits">
+      <div class="benefit">⬇️<strong>Digital Download</strong><span>Access after purchase*</span></div>
+      <div class="benefit">🔒<strong>Secure Checkout</strong><span>Razorpay Protected</span></div>
+      <div class="benefit">🏷️<strong>Special Discounts</strong><span>Offers on selected books</span></div>
+      <div class="benefit">📩<strong>Order Updates</strong><span>Email & WhatsApp ready*</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h2>About Mayank SRK Digital Store</h2>
+    <p style="color:var(--mut)">Useful knowledge, learning material and digital books—all in one place.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="foot">
+    <div><h3>Mayank SRK Digital Store</h3><p>Your digital destination for e-books, educational PDFs, stories, knowledge and more.</p></div>
+    <div><h4>Explore</h4><p><a href="#categories">Categories</a><br><a href="#trending">Trending PDFs</a><br><a href="#offers">Offers</a></p></div>
+    <div><h4>Support</h4><p>Order assistance<br>WhatsApp & Email updates (integration pending)</p></div>
+  </div>
+</footer>
+
+<div class="drawer" id="drawer" onclick="if(event.target.id==='drawer')closeCart()">
+  <div class="panel">
+    <h2>Your Cart <button style="float:right;background:none;border:none;font-size:18px" onclick="closeCart()" aria-label="Close Cart">✕</button></h2>
+    <div id="cartitems"></div>
+    <div class="total">Total: ₹<span id="total">0</span></div>
+    <button class="checkout" onclick="checkout()">Proceed to Checkout</button>
+    <p class="note">Secure payments via Razorpay. Instant PDF download link will be emailed after successful payment.</p>
+  </div>
+</div>
+
+<script>
+const cats=[['All','🌟'],['Education','🎓'],['Kids','🧒'],['Exam Notes','📝'],['Stories','📖'],['Computer','💻'],['Business','💼'],['Motivation','🚀']];
+const books=[
+  {id:1,title:'बच्चों को क्या सिखाएँ',cat:'Kids',desc:'बच्चों के लिए सीख, संस्कार और उपयोगी बातें',price:49,old:99,color:'green',cover:'बच्चों को क्या सिखाएँ',discount:'50% OFF'},
+  {id:2,title:'Student Study Guide',cat:'Education',desc:'छात्रों के लिए आसान अध्ययन मार्गदर्शिका',price:39,old:79,color:'blue',cover:'STUDENT STUDY GUIDE',discount:'50% OFF'},
+  {id:3,title:'General Knowledge PDF',cat:'Exam Notes',desc:'सामान्य ज्ञान की उपयोगी जानकारी',price:59,old:99,color:'gold',cover:'GENERAL KNOWLEDGE',discount:'40% OFF'},
+  {id:4,title:'Motivation & Success',cat:'Motivation',desc:'लक्ष्य, प्रेरणा और सफलता की बातें',price:29,old:59,color:'pink',cover:'MOTIVATION',discount:'50% OFF'},
+  {id:5,title:'Computer Basics',cat:'Computer',desc:'कंप्यूटर की बुनियादी जानकारी',price:49,old:89,color:'teal',cover:'COMPUTER BASICS',discount:'45% OFF'},
+  {id:6,title:'Business Ideas',cat:'Business',desc:'छोटे बिजनेस और डिजिटल काम के विचार',price:69,old:119,color:'orange',cover:'BUSINESS IDEAS',discount:'42% OFF'},
+  {id:7,title:'Hindi Stories',cat:'Stories',desc:'दिलचस्प हिंदी कहानियों का संग्रह',price:35,old:60,color:'pink',cover:'HINDI STORIES',discount:'42% OFF'},
+  {id:8,title:'Exam Revision Notes',cat:'Exam Notes',desc:'परीक्षा तैयारी के लिए रिवीजन PDF',price:79,old:129,color:'blue',cover:'REVISION NOTES',discount:'39% OFF'},
+  {id:9,title:'Digital Knowledge',cat:'Education',desc:'डिजिटल दुनिया और ज्ञान से जुड़ी बातें',price:45,old:75,color:'green',cover:'DIGITAL KNOWLEDGE',discount:'40% OFF'},
+  {id:10,title:'Kids Learning Book',cat:'Kids',desc:'बच्चों के लिए मजेदार सीखने की सामग्री',price:39,old:69,color:'gold',cover:'KIDS LEARNING',discount:'43% OFF'}
+];
+
+let selected='All';
+// Load cart from localStorage
+let cart = JSON.parse(localStorage.getItem('msrk_cart')) || [];
+
+function renderCats(){
+  document.getElementById('cats').innerHTML=cats.map(([n,e])=>`<button class="cat ${selected===n?'active':''}" onclick="setCat('${n}')"><span class="emoji">${e}</span><span>${n}</span></button>`).join('')
+}
+
+function setCat(c){
+  selected=c;
+  document.getElementById('search').value=''; // Clear search
+  renderCats();
+  render();
+  document.getElementById('trending').scrollIntoView({behavior:'smooth'})
+}
+
+function card(b){
+  return `<article class="product">
+    <div class="cover ${b.color}"><span class="tag">${b.discount}</span><div class="covertext">${b.cover}</div></div>
+    <div class="info"><h3>${b.title}</h3><p>${b.desc}</p>
+    <div class="price">₹${b.price}<span class="old">₹${b.old}</span></div>
+    <div class="rating">Digital PDF</div>
+    <div class="buttons">
+      <button class="buy" onclick="buy(${b.id})">Buy Now</button>
+      <button class="add" onclick="add(${b.id})">+ Cart</button>
+    </div></div></article>`
+}
+
+function render(){
+  const q=document.getElementById('search').value.toLowerCase();
+  let list=books.filter(b=>(selected==='All'||b.cat===selected)&&(`${b.title} ${b.cat} ${b.desc}`).toLowerCase().includes(q));
+  
+  let trendList = q ? list : list.slice(0, 5);
+  document.getElementById('products').innerHTML=trendList.map(card).join('')||'<p>No products found</p>';
+  
+  document.getElementById('bestgrid').innerHTML = list.length ? list.slice(5).map(card).join('') || trendList.map(card).join('') : '<p>No products found</p>';
+}
+
+function add(id, showAlert = true){
+  let b=books.find(x=>x.id===id),it=cart.find(x=>x.id===id);
+  if(it) it.qty++;
+  else cart.push({...b,qty:1});
+  update();
+  if(showAlert) alert('Added to cart');
+}
+
+function buy(id){
+  add(id, false); 
+  openCart();
+}
+
+function update(){
+  localStorage.setItem('msrk_cart', JSON.stringify(cart)); 
+  document.getElementById('count').textContent=cart.reduce((a,x)=>a+x.qty,0);
+  document.getElementById('cartitems').innerHTML=cart.length?cart.map(x=>`<div class="cartline"><div><b>${x.title}</b><br>₹${x.price} × ${x.qty}</div><button onclick="removeItem(${x.id})" style="background:#ffe5e5;color:#d32f2f;border:none;padding:5px 10px;border-radius:5px">Remove</button></div>`).join(''):'Cart is empty';
+  
+  let totalAmt = cart.reduce((a,x)=>a+x.price*x.qty,0);
+  document.getElementById('total').textContent=totalAmt.toLocaleString('en-IN');
+}
+
+function removeItem(id){
+  cart=cart.filter(x=>x.id!==id);
+  update();
+}
+
+function openCart(){ document.getElementById('drawer').classList.add('open') }
+function closeCart(){ document.getElementById('drawer').classList.remove('open') }
+
+// --- RAZORPAY PAYMENT INTEGRATION ---
+function checkout(){
+  if(!cart.length){
+    alert('Aapka cart khaali hai. Kripya pehle kuch books add karein.');
+    return;
+  }
+
+  let totalAmt = cart.reduce((a,x)=>a+x.price*x.qty,0);
+
+  var options = {
+    "key": "rzp_test_U0zO6uF0S6ULd3", // <--- Yahan aapki Test Key hai (Live aane par badalna)
+    "amount": totalAmt * 100, 
+    "currency": "INR",
+    "name": "Mayank SRK Digital Store",
+    "description": "Purchase of Digital PDFs",
+    "handler": function (response){
+        alert("Payment Successful!\nPayment ID: " + response.razorpay_payment_id + "\n\nAapki PDF jald hi email kar di jayegi.");
+        cart = [];
+        update();
+        closeCart();
+    },
+    "prefill": {
+        "name": "Customer Name",
+        "email": "customer@example.com",
+        "contact": "9999999999"
+    },
+    "theme": {
+        "color": "#087f65"
+    }
+  };
+
+  var rzp1 = new Razorpay(options);
+  
+  rzp1.on('payment.failed', function (response){
+    alert("Payment Failed!\nReason: " + response.error.description);
+  });
+
+  rzp1.open();
+}
+
+renderCats();
+render();
+update();
+</script>
+</body>
+</html>
